@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mute Similar X Images</title>
+    <meta name="manifest.type" content="options" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <p class="eyebrow">Chromium MV3</p>
+        <h1>Mute Similar X Images</h1>
+        <p class="lede">
+          Right-click an image on X, mute it, and hide future tweets that carry
+          a similar image embedding.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Settings</h2>
+          <form id="settings-form" class="stack">
+            <label class="field" for="api-key">
+              <span>Gemini API key</span>
+              <input
+                id="api-key"
+                name="apiKey"
+                type="password"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="AIza..."
+              />
+            </label>
+
+            <label class="toggle" for="enabled">
+              <input id="enabled" name="enabled" type="checkbox" />
+              <span>Enable image scanning and blocking</span>
+            </label>
+
+            <label class="field" for="threshold">
+              <span>Similarity threshold</span>
+              <div class="slider-row">
+                <input
+                  id="threshold"
+                  name="threshold"
+                  type="range"
+                  min="0.5"
+                  max="0.99"
+                  step="0.01"
+                />
+                <output id="threshold-value" for="threshold">0.92</output>
+              </div>
+              <small>Higher values reduce false positives.</small>
+            </label>
+
+            <button id="save-button" class="primary" type="submit">
+              Save settings
+            </button>
+          </form>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+          <h2>Library</h2>
+          <dl class="stats">
+            <div>
+              <dt>Muted images</dt>
+              <dd id="muted-count">0</dd>
+            </div>
+            <div>
+              <dt>Cached embeddings</dt>
+              <dd id="cache-count">0</dd>
+            </div>
+            <div>
+              <dt>Model</dt>
+              <dd>gemini-embedding-2-preview</dd>
+            </div>
+          </dl>
+
+          <div class="actions">
+            <button id="undo-button" type="button">Undo last mute</button>
+            <button id="reset-button" type="button">Reset muted library</button>
+            <button id="clear-cache-button" type="button">Clear scan cache</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

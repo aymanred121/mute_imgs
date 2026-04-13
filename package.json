@@ -1,0 +1,28 @@
+{
+  "name": "mute-similar-x-images",
+  "description": "Mute similar X/Twitter images with Gemini embeddings.",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "compile": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "jsdom": "^29.0.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4",
+    "wxt": "^0.20.21"
+  },
+  "dependencies": {
+    "@google/genai": "^1.49.0",
+    "idb": "^8.0.3"
+  }
+}
