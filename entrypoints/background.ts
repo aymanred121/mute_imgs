@@ -57,15 +57,8 @@ export default defineBackground({
   main() {
     void createContextMenu();
 
-    browser.runtime.onInstalled.addListener((details) => {
+    browser.runtime.onInstalled.addListener(() => {
       void createContextMenu();
-      if (details.reason === 'install') {
-        void browser.runtime.openOptionsPage();
-      }
-    });
-
-    browser.action.onClicked.addListener(() => {
-      void browser.runtime.openOptionsPage();
     });
 
     browser.contextMenus.onClicked.addListener((info, tab) => {
